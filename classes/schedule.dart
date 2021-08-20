@@ -4,9 +4,10 @@ import 'contact.dart';
 import '../interfaces/ischedule.dart';
 
 class Schedule extends PhoneBook implements ISchedule {
-  void createContact(var name, var phone) {
-    final Contact contact = Contact((this.contacts.length + 1).toString(),
-        name: name, phone: phone);
+  void createContact(var name, var phone, {var address, var relationship}) {
+    final Contact contact = Contact(
+        (this.contacts.length + 1).toString(), name, phone,
+        address: address, relationship: relationship);
     this.contacts.add(contact);
   }
 
@@ -34,11 +35,14 @@ class Schedule extends PhoneBook implements ISchedule {
     }
   }
 
-  void updateContact(var id, var name, var phone) {
+  void updateContact(var id, var name, var phone,
+      {var address, var relationship}) {
     this.contacts.forEach((contact) {
       if (contact.id == id) {
         contact.setName(name);
         contact.setPhone(phone);
+        contact.setAddress(address);
+        contact.setRelationship(relationship);
       }
     });
   }

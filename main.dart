@@ -16,7 +16,11 @@ void main() {
         var name = stdin.readLineSync();
         stdout.writeln('Digite o telefone do contato:');
         var phone = stdin.readLineSync();
-        schedule.createContact(name, phone);
+        stdout.writeln('Digite o endereço do contato:');
+        var address = stdin.readLineSync();
+        stdout.writeln('Qual sua relação com o contato:');
+        var relationship = stdin.readLineSync();
+        schedule.createContact(name, phone, address: address, relationship: relationship);
         break;
       case '2':
         schedule.listContacts();
@@ -33,7 +37,11 @@ void main() {
         var name = stdin.readLineSync();
         stdout.writeln('Digite o novo telefone do contato:');
         var phone = stdin.readLineSync();
-        schedule.updateContact(id, name, phone);
+        stdout.writeln('Digite o novo endereço do contato:');
+        var address = stdin.readLineSync();
+        stdout.writeln('Qual a nova relação com o contato:');
+        var relationship = stdin.readLineSync();
+        schedule.updateContact(id, name, phone, address: address, relationship: relationship);
         break;
       case '5':
         stdout.writeln('Digite o id do contato que deseja remover:');
